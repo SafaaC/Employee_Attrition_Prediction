@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Attrition Predictor</title>
+  <style>
+    body   { font-family: Arial; max-width: 480px; margin: 30px auto; }
+    label  { display: block; margin-top: 12px; font-weight: bold; }
+    input, select { width: 100%; padding: 6px; }
+    button { margin-top: 18px; padding: 10px; width: 100%; font-size: 16px; }
+    .result { margin-top: 20px; padding: 14px; background: #eef; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h2>Will this employee leave?</h2>
+
+  <form method="POST">
+    <label>Overtime
+      <select name="OverTime"><option>No</option><option>Yes</option></select>
+    </label>
+
+    <label>Job Role
+      <select name="JobRole">
+        <option>Healthcare Representative</option>
+        <option>Human Resources</option>
+        <option>Laboratory Technician</option>
+        <option>Manager</option>
+        <option>Manufacturing Director</option>
+        <option>Research Director</option>
+        <option>Research Scientist</option>
+        <option>Sales Executive</option>
+        <option>Sales Representative</option>
+      </select>
+    </label>
+
+    <label>Marital Status
+      <select name="MaritalStatus"><option>Single</option><option>Married</option><option>Divorced</option></select>
+    </label>
+
+    <label>Job Level (1-5)               <input type="number" name="JobLevel" value="2" required></label>
+    <label>Total Working Years           <input type="number" name="TotalWorkingYears" value="8" required></label>
+    <label>Years With Current Manager   <input type="number" name="YearsWithCurrManager" value="2" required></label>
+    <label>Years Since Last Promotion    <input type="number" name="YearsSinceLastPromotion" value="1" required></label>
+    <label>Companies Worked At           <input type="number" name="NumCompaniesWorked" value="2" required></label>
+    <label>Environment Satisfaction (1-4)<input type="number" name="EnvironmentSatisfaction" value="3" required></label>
+    <label>Job Satisfaction (1-4)        <input type="number" name="JobSatisfaction" value="3" required></label>
+
+    <button type="submit">Predict</button>
+  </form>
+
+  {% if result %}
+    <div class="result">{{ result }}</div>
+  {% endif %}
+</body>
+</html>
